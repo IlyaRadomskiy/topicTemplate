@@ -40,14 +40,14 @@
 		2638AA1B2E981CEA004350E4 /* Exceptions for "Moduls" folder in "Programm01Tests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				TopicPresenter.swift,
+				Topic/TopicPresenter.swift,
 			);
 			target = 2638A9D02E97F6DC004350E4 /* Programm01Tests */;
 		};
 		2638AA1C2E981CEA004350E4 /* Exceptions for "Moduls" folder in "Programm01UITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				TopicPresenter.swift,
+				Topic/TopicPresenter.swift,
 			);
 			target = 2638A9DA2E97F6DC004350E4 /* Programm01UITests */;
 		};

@@ -6,30 +6,36 @@
 //
 
 import Foundation
-
-import Foundation
+import UIKit
 
 protocol ITopicPresenter: AnyObject {
     func loadTopics()
+    func viewDidLoad()
+    func showSelectionLimitAlert()
 }
 
 final class TopicPresenter: ITopicPresenter {
-    weak var view: ITopicPresenterView?
+    weak var view: ITopicView?
+    var router: ITopicRouter?
     private let interactor: ITopicInteractor
 
-    init(view: ITopicPresenterView, interactor: ITopicInteractor) {
+    init(view: ITopicView? = nil, interactor: ITopicInteractor) {
         self.view = view
         self.interactor = interactor
     }
 
+    func showSelectionLimitAlert() {
+        router?.showSelectionLimitAlert()
+    }
+
     func loadTopics() {
-        let sections = interactor.fatchTopic()
+        let sections = interactor.fetchTopic()
         view?.showTopics(sections)
+    }
+
+    func viewDidLoad() {
+        loadTopics()
     }
 }
 
-// временная заглушка для сборки
-final class DummyPresenter: ITopicPresenter {
-    func loadTopics() {}
-}
 

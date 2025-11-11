@@ -9,14 +9,16 @@ import UIKit
 
 struct TopicAssembly {
     func createModule() -> UIViewController {
+
         let interactor = TopicInteractor()
-        let viewController = TopicViewController(presenter: DummyPresenter()) // временно для init
-        let presenter = TopicPresenter(view: viewController, interactor: interactor)
         let router = TopicRouter()
+        let presenter = TopicPresenter(interactor: interactor)
+        let viewController = TopicViewController(presenter: presenter)
 
-        viewController.setPresenter(presenter)
+        presenter.view = viewController
+        presenter.router = router
         router.viewController = viewController
-
+        
         return viewController
     }
 }
